@@ -20,7 +20,7 @@ function darkMode(){
     document.body.classList.toggle('bg-light');
     document.body.classList.toggle('bg-dark');
     buttonMore.classList.toggle('bg-dark')
-    buttonMore.classList.toggle('text-light')
+    buttonMore.classList.toggle('text-dark')
     if(toggle.innerHTML === "🌙 Dark Mode"){
         toggle.innerHTML= "🌙 Light Mode"
     }
