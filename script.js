@@ -4,6 +4,10 @@ const cardsElement = document.getElementById("cards")
 const inputSearch = document.querySelector(".search input")
 const buttonMore = createNode('button');
 const select = document.querySelector('select');
+const toggle = document.getElementById('toggle');
+
+
+
 
 let totalElement = 250;
 let perPage=8;
@@ -13,7 +17,19 @@ let end = start + perPage;
 
 function darkMode(){
     
+    document.body.classList.toggle('bg-light');
+    document.body.classList.toggle('bg-dark');
+    buttonMore.classList.toggle('bg-dark')
+    buttonMore.classList.toggle('text-light')
+    if(toggle.innerHTML === "🌙 Dark Mode"){
+        toggle.innerHTML= "🌙 Light Mode"
+    }
+    else{
+        toggle.innerHTML = "🌙 Dark Mode"
+    }  
+
 }
+toggle.addEventListener('click', darkMode)
 
 function createNode(element){
     const elem = document.createElement(element);
