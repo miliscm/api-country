@@ -31,6 +31,20 @@ function darkMode(){
 }
 toggle.addEventListener('click', darkMode)
 
+
+
+function handleClick(arr){
+    arr.forEach(item=>{
+        item.addEventListener("click", ()=>{
+            redirect(item.id)
+        })
+    })
+}
+function redirect(el){
+    var currentUrl = window.location.href;
+   return window.location.href = currentUrl + "country.html" + "?"+ el;
+}
+
 function createNode(element){
     const elem = document.createElement(element);
     return elem
@@ -42,13 +56,13 @@ function hideElement(element){
     element.style = "display:none";
 }
 function htmlElement(infos){
-    return `<a href="#"><div id="${infos.nome}" class="card">
+    return `<a href="#" id="${infos.nome}"><div class="card">
     <div class="flag">
     <img src="${infos.flag}" alt="" />
     </div>       
     <div>
     <h2>${infos.nome}</h2>
-    <p><strong>Population:</strong> ${infos.population}</p>
+    <p><strong>Population:</strong> ${infos.population.toLocaleString('pt-BR')}</p>
     <p><strong>Region:</strong> ${infos.region}</p>
     <p><strong>Capital:</strong> ${infos.capital}</p>
     </div>
@@ -79,7 +93,8 @@ async function filterSelect(region){
   cardsElement.insertAdjacentHTML("beforeend",htmlElement(infos) )
 });
 hideElement(buttonMore);
-
+const listArrCards = document.querySelectorAll(".cards a")
+   handleClick(listArrCards)
 }
 
 
@@ -123,7 +138,8 @@ async function searchCountry(e){
     } catch (error) {
         console.log(error)
     }
-       
+    const listArrCards = document.querySelectorAll(".cards a")
+    handleClick(listArrCards)
 }
 
 async function getDataFilter(){
@@ -171,6 +187,8 @@ async function getDataAll(){
     catch (error) {
        console.log(error)
    }
+   const listArrCards = document.querySelectorAll(".cards a")
+   handleClick(listArrCards)
 }
 
 
