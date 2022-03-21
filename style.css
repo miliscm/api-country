@@ -160,3 +160,21 @@ main{
     display: flex;
     gap: 3rem;
 }
+@media(max-width:520px){
+    .cards{
+        justify-content: center;
+    }
+    .card{
+        max-width: 100%;
+    }
+    .search{
+        justify-content: center;
+    }
+    .country{
+        display: block;
+        text-align: center;
+    }
+    .flag img{
+        display: initial;
+    }
+}
